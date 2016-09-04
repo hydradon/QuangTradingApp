@@ -1,0 +1,81 @@
+﻿<Window x:Class="QuangsTradingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuangsTradingApp"
+        mc:Ignorable="d"
+        Title="Quang's Trading App" Height="465.2" Width="537">
+    <DockPanel LastChildFill="True">
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <TextBlock Name="StatusBarTextBlock" />
+        </StatusBar>
+
+        <StackPanel Orientation="Vertical">
+            <StackPanel Background="Lavender" Margin="5">
+                <TextBlock Background="MidnightBlue" Foreground="YellowGreen" Padding="5">Add stock</TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label   Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Stock name</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Name="NewStockTextBox" />
+
+                    <Label    Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Number</Label>
+                    <TextBox  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Name="NewStockNumber" />
+
+                    <Label    Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">Minimum Price</Label>
+                    <TextBox  Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Name="NewMinPrice" />
+
+                    <Label    Grid.Row="3" Grid.Column="0" VerticalAlignment="Center">Maximum Price</Label>
+                    <TextBox  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Name="NewMaxPrice" />
+
+                    <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 10">
+                        <Button Name="AddButton"   Margin="0 0 5 0" Click="AddButton_Click">Add</Button>
+                        <Button Name="ResetButton" VerticalAlignment="Center" Click="ResetButton_Click">Reset</Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Background="Lavender" Margin="5" >
+                <TextBlock Background="MidnightBlue" Foreground="YellowGreen" Padding="5">Owned stocks</TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0" Name="StockListBox" Height="200" SelectionChanged="StockListbox_SelectionChanged" Grid.ColumnSpan="3" Margin="0,0,100,0" />
+
+                    <GridSplitter Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="4" ShowsPreview="True" />
+
+                    <DockPanel Grid.Row="0" Grid.Column="2">
+                        <TextBlock DockPanel.Dock="Top"    Name="DescriptionTextBlock" HorizontalAlignment="Left"/>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                            <Button    DockPanel.Dock="Bottom" Name="TradeButton" VerticalAlignment="Bottom" Click="TradeButton_Click" Margin="5 5 5 5">Trade this stock</Button>
+                            <Button    DockPanel.Dock="Bottom" Name="EditButton"  VerticalAlignment="Bottom" Click="EditButton_Click" Margin="5 5 5 5">Edit</Button>
+                            <Button    DockPanel.Dock="Bottom" Name="DeleteButton" VerticalAlignment="Bottom" Click="DeleteButton_Click" Margin="5 5 5 5">Delete</Button>
+                        </StackPanel>
+                    </DockPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+    </DockPanel>
+</Window>
